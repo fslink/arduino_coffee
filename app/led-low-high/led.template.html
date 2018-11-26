@@ -1,0 +1,19 @@
+<div style="width:100%">
+  <div class="d-flex justify-content-center h-100">
+    <div class="card" style="width: 100%;margin-top: 10px;">
+      <img class="card-img-top" src="../img/koffiemachine-illustratie-achtergrond_5639-36.jpg" alt="Card image cap" style="height: 40%">
+      <div class="card-body">
+        <h1 class="card-title">Coffee Machine</h1>
+        <h1>LED</h1>
+        <p class="card-text"><h2>{{$ctrl.status}}</h2></p>
+        <button type="button" class="btn btn-primary btn-lg" ng-click="$ctrl.setLed('on')">ON</button>
+        <button type="button" class="btn btn-primary btn-lg" ng-click="$ctrl.setLed('off')">OFF</button>
+        <div>
+        <h1>Coffee Push</h1>
+        <h2>{{$ctrl.status2}}</h2>
+        <button type="button" class="btn btn-primary btn-lg" ng-click="$ctrl.setCoffePush()">ON</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
