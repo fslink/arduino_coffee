@@ -7,23 +7,30 @@ angular.
 			controller: ['Led', function LedLowHighController(Led){
 				var self = this;
 				this.response = "no request";
-				this.status = "The coffee machine is off";
-				this.status2 = "Wait";
+				this.status = "off";
+				this.alert = "alert-primary";
 				this.setLed = function(on_off) {
 					if(on_off == "on"){
+						self.response = "Processing...";
 						self.status = "on";
-						Led.query({led_status : "ledOn"});
-
+						Led.query({led: 'on'}, function(data){
+							self.response = data;
+							self.alert = "alert-success";
+						}, function(err){
+							self.response = err;
+							self.alert = "alert-danger";
+						});
 					} else {
+						self.response = "Processing...";
 						self.status = "off";
-						Led.query({led_status : "ledOff"});
+						Led.query({led : "off"}, function(data){
+							self.response = data;
+							self.alert = "alert-success";
+						}, function(err){
+							self.response = err;
+							self.alert = "alert-danger";
+						});
 					}
 				};
-
-				this.setCoffePush = function() {
-					self.status2 = "on wait";
-					Led.query2({led_status : "push"});
-					self.status2 = "Coffee ready !!";
-				}
 			}]
 		});

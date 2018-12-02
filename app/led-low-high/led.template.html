@@ -1,19 +1,55 @@
-<div style="width:100%">
-  <div class="d-flex justify-content-center h-100">
-    <div class="card" style="width: 100%;margin-top: 10px;">
-      <img class="card-img-top" src="../img/koffiemachine-illustratie-achtergrond_5639-36.jpg" alt="Card image cap" style="height: 40%">
-      <div class="card-body">
-        <h1 class="card-title">Coffee Machine</h1>
-        <h1>LED</h1>
-        <p class="card-text"><h2>{{$ctrl.status}}</h2></p>
-        <button type="button" class="btn btn-primary btn-lg" ng-click="$ctrl.setLed('on')">ON</button>
-        <button type="button" class="btn btn-primary btn-lg" ng-click="$ctrl.setLed('off')">OFF</button>
-        <div>
-        <h1>Coffee Push</h1>
-        <h2>{{$ctrl.status2}}</h2>
-        <button type="button" class="btn btn-primary btn-lg" ng-click="$ctrl.setCoffePush()">ON</button>
-        </div>
-      </div>
-    </div>
+<div class="container" style="margin-top: 10px;">
+  <h1>Tell your device what to do!</h1><br>
+  <img ng-src="img/coffe_machine.png" class="img-fluid rounded" alt="Responsive image" id="img-coffee">
+  <div class="alert alert-primary" role="alert">
+  	<h2>{{$ctrl.led_query}}</h2>
   </div>
+  <br>
+  <div class="form-container">
+  	 <div class="led-buttons">
+  		 <input type="radio" id="on" name="led" value="on" ng-model="$ctrl.led_query">
+  		 <label for="on" id="label-on">ON</label>
+  		 <input type="radio" id="off" name="led" value="off" ng-model="$ctrl.led_query">
+		   <label for="off">OFF</label>
+	   </div>
+     <button ng-click="$ctrl.setLed($ctrl.led_query)" class="btn btn-primary" id="submit-led">Submit</button>
+  </div>
+  <style>
+    .container{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+  	.form-container{
+  		display: flex;
+  		justify-content: center;
+  		flex-direction: column;
+  	}
+  	.led-buttons{
+  		display: flex;
+  		justify-content: center;
+  		align-items: baseline;
+  	}
+  	#label-on{
+  		margin-right: 5px;
+  	}
+    #img-coffee{
+      max-height: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #submit-led{
+      display: flex;
+      justify-content: center;
+      width: 100%
+      
+    }
+  </style>
+  <br>
+  <br>
+  <div class="alert {{$ctrl.alert}}" role="alert">
+    <p>{{$ctrl.response}}</p>
+  </div>
+  <br>
 </div>
